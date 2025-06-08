@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Variables */
     :root {
       --primary: #4361ee;
       --primary-dark: #3a56d4;
@@ -30,7 +29,6 @@
       --shadow-xl: 0 15px 25px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.05);
     }
 
-    /* Base Styles */
     * {
       margin: 0;
       padding: 0;
@@ -42,18 +40,19 @@
       background: linear-gradient(135deg, #1a1a2e, #16213e);
       color: var(--light);
       min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 2rem;
       line-height: 1.6;
     }
 
-    /* Layout Classes */
     .container {
       width: 100%;
       max-width: 480px;
       margin: 0 auto;
     }
 
-    /* Card Styles */
     .card {
       background: var(--card-bg);
       backdrop-filter: blur(10px);
@@ -65,7 +64,6 @@
       transition: var(--transition);
       overflow: hidden;
       position: relative;
-      margin-bottom: 2rem;
     }
 
     .card:hover {
@@ -85,7 +83,6 @@
       z-index: -1;
     }
 
-    /* Logo Styles */
     .logo-container {
       display: flex;
       justify-content: center;
@@ -107,7 +104,6 @@
       box-shadow: 0 0 30px rgba(67, 97, 238, 0.7);
     }
 
-    /* Typography Styles */
     .title {
       text-align: center;
       margin-bottom: 2rem;
@@ -139,7 +135,6 @@
       border-radius: 3px;
     }
 
-    /* Form Elements */
     .input-group {
       margin-bottom: 1.5rem;
       position: relative;
@@ -174,7 +169,6 @@
       color: var(--gray);
     }
 
-    /* Button Styles */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -232,7 +226,6 @@
       background: rgba(255, 255, 255, 0.2);
     }
 
-    /* Code Display */
     .code-display {
       background: rgba(0, 0, 0, 0.2);
       border: 1px solid var(--card-border);
@@ -257,7 +250,6 @@
       color: var(--gray);
     }
 
-    /* Loading Spinner */
     .loading {
       display: inline-block;
       width: 20px;
@@ -273,28 +265,10 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Utility Classes */
     .hidden {
       display: none;
     }
 
-    .text-center {
-      text-align: center;
-    }
-
-    .text-gray {
-      color: var(--gray);
-    }
-
-    .mb-1 {
-      margin-bottom: 1rem;
-    }
-
-    .mb-1_5 {
-      margin-bottom: 1.5rem;
-    }
-
-    /* Toast Notification */
     .toast {
       position: fixed;
       top: 20px;
@@ -336,9 +310,9 @@
       color: var(--error);
     }
 
-    /* Footer */
     .footer {
       text-align: center;
+      margin-top: 2rem;
       color: var(--gray);
       font-size: 0.8rem;
     }
@@ -354,7 +328,18 @@
       text-decoration: underline;
     }
 
-    /* Animation Classes */
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+      .card {
+        padding: 1.5rem;
+      }
+      
+      .title h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Animation classes */
     .fade-in {
       animation: fadeIn 0.5s ease-in-out;
     }
@@ -373,17 +358,6 @@
       70% { box-shadow: 0 0 0 10px rgba(67, 97, 238, 0); }
       100% { box-shadow: 0 0 0 0 rgba(67, 97, 238, 0); }
     }
-
-    /* Responsive adjustments */
-    @media (max-width: 576px) {
-      .card {
-        padding: 1.5rem;
-      }
-      
-      .title h1 {
-        font-size: 1.5rem;
-      }
-    }
   </style>
 </head>
 <body>
@@ -397,7 +371,7 @@
         <h1>ALPHA-MD</h1>
         <p>Session Generator</p>
       </div>
-      <p class="text-center text-gray mb-1_5">
+      <p style="text-align: center; margin-bottom: 1.5rem; color: var(--gray);">
         Verify your GitHub fork to generate WhatsApp session codes
       </p>
       <button class="btn btn-primary" id="verifyFork">
@@ -527,7 +501,7 @@
         
         // For demo purposes, we'll simulate a response
         // const code = response.data.code || "DEMO-CODE-1234";
-        const code = Math.random().toString(36).substring(2, 8).toUpperCase();
+        const code = "DEMO-CODE-" + Math.random().toString(36).substring(2, 8).toUpperCase();
         
         // Display the code
         codeDisplay.textContent = code;
