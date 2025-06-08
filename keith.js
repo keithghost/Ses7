@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 // Import routes
-const qr = require('./qr');
+
 const code = require('./pair');
 
 // Prevent max listeners warning
@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Define routes
-app.use('/qr', qr);
 app.use('/code', code);
 app.use('/pair', (req, res) => {
     res.sendFile(path.join(__dirname, '/pair.html'));
