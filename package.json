@@ -17,6 +17,7 @@
     "awesome-phonenumber": "^2.64.0",
     "pino": "^8.1.0",
     "phone" : "3.1.30",
+    "jimp": "^0.16.13",  
     "fs": "^0.0.1-security",
     "fs-extra": "^11.1.1",
     "node-fetch": "^3.2.6",
