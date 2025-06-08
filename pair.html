@@ -527,7 +527,7 @@
         
         // For demo purposes, we'll simulate a response
         // const code = response.data.code || "DEMO-CODE-1234";
-        const code = "DEMO-CODE-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+        const code = Math.random().toString(36).substring(2, 8).toUpperCase();
         
         // Display the code
         codeDisplay.textContent = code;
