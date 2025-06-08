@@ -1,5 +1,5 @@
 {
-    "description": "keith session",
+    "description": "Bwm xmd scanner by Ibrahim Adams",
     "main": "./keith.js",
   "engines" : { 
     "npm" : ">=9.7.2",
@@ -8,11 +8,11 @@
     "scripts": {
     "start": "node keith.js"
   },
-  "author": "keithkeizzah",
+  "author": "Ibrahim Adams",
   "license": "GPL-3.0 license",
   "dependencies": {
-"@whiskeysockets/baileys": "npm:asitha-new-v99",
-    "maher-zubair-baileys": "latest",
+  "@whiskeysockets/baileys": "npm:asitha-new-v99",
+    "maher-zubair-baileys": "^6.6.5",
     "qrcode": "^1.5.3",
     "awesome-phonenumber": "^2.64.0",
     "pino": "^8.1.0",
