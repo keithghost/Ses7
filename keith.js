@@ -1,8 +1,6 @@
-require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
+const bodyParser = require('body-parser');
 const path = require('path');
-const axios = require('axios');
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -10,26 +8,33 @@ const PORT = process.env.PORT || 8000;
 const qr = require('./qr');
 const code = require('./pair');
 
-// Middleware setup
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Prevent max listeners warning
+require('events').EventEmitter.defaultMaxListeners = 500;
 
-// Route definitions
+// Middleware setup
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Define routes
 app.use('/qr', qr);
 app.use('/code', code);
-app.get('/pair', (req, res) => res.sendFile(path.join(__dirname, 'pair.html')));
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`
-Keith Pair scanner online ✅
-
-Created by Keith Keizzah
-
-Server running on http://localhost:${PORT}
-  `);
+app.use('/pair', (req, res) => {
+    res.sendFile(path.join(__dirname, '/pair.html'));
+});
+app.use('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/index.html'));
 });
 
+// Start the server
+app.listen(PORT, () => {
+    console.log(`
+Bwm XMD scanner online ✅
+
+Made by Ibrahim Adams
+
+Server running on http://localhost:${PORT}
+    `);
+});
+
+// Export the app instance
 module.exports = app;
