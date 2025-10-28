@@ -12,7 +12,7 @@ const {
     delay,
     fetchLatestBaileysVersion,
     makeCacheableSignalKeyStore,
-    Browsers
+    
 } = require("@whiskeysockets/baileys");
 
 // Media URLs and content arrays
@@ -60,7 +60,8 @@ router.get('/', async (req, res) => {
                 version,
                 printQRInTerminal: false,
                 logger: pino({ level: "fatal" }).child({ level: "fatal" }),
-                  browser: Browsers.macOS('brave')
+                browser: ['Ubuntu', 'Chrome', '20.0.04'],
+                auth: state,
             });
             if (!keithBot.authState.creds.registered) {
                 await delay(1500);
