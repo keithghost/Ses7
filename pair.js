@@ -53,10 +53,7 @@ router.get('/', async (req, res) => {
         
         try {
             let keithBot = Keith_Keizzah({
-                auth: {
-                    creds: state.creds,
-                    keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" })),
-                },
+                
                 version,
                 printQRInTerminal: false,
                 logger: pino({ level: "fatal" }).child({ level: "fatal" }),
